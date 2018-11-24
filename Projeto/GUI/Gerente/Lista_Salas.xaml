@@ -1,0 +1,50 @@
+﻿<Page x:Class="BD___Project.GUI.Lista_Salas"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BD___Project.GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Cinemas ZOZ" Height="450" Width="650" Background="#6495ED">
+
+    <Grid Margin="10">
+        <Label Content="" Height="26" Name="operacoes" VerticalAlignment="Top" Background="#B0C4DE" Margin="-10,-10,-11,0"/>
+        <Button Name="Adicionar" Click="Adicionar_Click" Margin="388,348,49,50">Adicionar</Button>
+        <Button Name="Remover" Click="Remover_Click" Margin="108,348,455,50">Remover</Button>
+        <TextBlock Margin="345,78,231,332" FontSize="13.333">Sala</TextBlock>
+        <TextBlock Margin="474,62,102,348" FontSize="13.333">Nº Filas</TextBlock>
+        <TextBlock Margin="474,89,78,319" FontSize="13.333">Nº Colunas</TextBlock>
+        <TextBlock Name="lugares_textblock" Margin="345,125,145,279" FontSize="13.333" Visibility="Collapsed">Lugares de Deficientes:</TextBlock>
+        <Button Content="Terminar Sessão" Margin="531,-10,0,413" Name="logout_button" Click="logout_button_Click" Background="#AFEEEE" />
+        <Button Content="Gestor Menu" Margin="-10,-10,522,414" x:Name="gestor_button" Click="gestor_button_Click" Background="#AFEEEE" />
+        <Button Content="Lista Salas" Margin="108,-10,432,414" x:Name="listasalas_button" Click="listasalas_button_Click" Background="#AFEEEE" />
+        <TextBox x:Name="sala_textbox" Margin="388,71,190,332" PreviewTextInput="PreviewTextInputNumberOnly"/>
+        <TextBox x:Name="filas_textbox" Margin="557,55,21,348" PreviewTextInput="PreviewTextInputNumberOnly" TextChanged="filas_colunas_textbox_TextChanged"/>
+        <TextBox x:Name="colunas_textbox_Copy" Margin="557,89,21,314" PreviewTextInput="PreviewTextInputNumberOnly" TextChanged="filas_colunas_textbox_TextChanged"/>
+        <ListBox Name="salaslb" SelectionChanged="lbTodoList_SelectionChanged" Margin="56,80,374,152" local:ListBoxSelectionBehavior.ClickSelection="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding num_sala}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Voltar" Margin="-7,21,588,378" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Cornsilk"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Grid Name="gridLugares" HorizontalAlignment="Left" Height="175" Margin="345,156,0,0" VerticalAlignment="Top" Width="264" Visibility="Collapsed"/>
+    </Grid>
+
+</Page>

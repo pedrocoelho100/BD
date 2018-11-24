@@ -1,0 +1,51 @@
+﻿<Page x:Class="BD___Project.GUI.Lista_Distribuidoras"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BD___Project.GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Cinemas ZOZ" Height="450" Width="650" Background="#6495ED">
+
+    <Grid Margin="10">
+        <Label Content="" Height="26" Name="operacoes" VerticalAlignment="Top" Background="#B0C4DE" Margin="-10,-10,-11,0"/>
+        <TextBlock Name="id_title" Margin="297,88,306,322" FontSize="13.333" Visibility="Collapsed">ID</TextBlock>
+        <TextBlock Margin="297,123,294,290" FontSize="13.333">Nome</TextBlock>
+        <TextBlock Margin="297,158,221,253" FontSize="13.333">Pagamento Inicial</TextBlock>
+        <TextBlock Margin="297,193,202,210" FontSize="13.333">Comissão Por Bilhete</TextBlock>
+        <TextBox x:Name="id_textbox" Margin="428,88,10,315" IsEnabled="False" Visibility="Collapsed"/>
+        <TextBox x:Name="nome_textbox" Margin="428,123,10,280"/>
+        <TextBox x:Name="pagamento_textbox" Margin="428,158,10,245"/>
+        <TextBox x:Name="comissao_textbox" Margin="428,193,10,210"/>
+        <Button Name="Adicionar" Click="Adicionar_Click" Margin="456,295,41,103">Adicionar</Button>
+        <Button Name="Remover" Click="Remover_Click" Margin="108,295,455,103" IsEnabled="False">Remover</Button>
+        <Button Name="Alterar" Click="Alterar_Click" Margin="456,295,41,103" Visibility="Collapsed">Alterar</Button>
+        <Button Content="Terminar Sessão" Margin="531,-10,0,413" Name="logout_button" Click="logout_button_Click" Background="#AFEEEE" />
+        <Button Content="Admin Menu" Margin="-10,-10,522,414" x:Name="admin_button" Click="admin_button_Click" Background="#AFEEEE" />
+        <Button Content="Lista Distribuidoras" Margin="108,-10,404,414" x:Name="listadistribuidoras_button" Click="listadistribuidoras_button_Click" Background="#AFEEEE" />
+        <ListBox Name="distribuidoraslb" SelectionChanged="lbTodoList_SelectionChanged" Margin="47,87,367,181" local:ListBoxSelectionBehavior.ClickSelection="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Title}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Voltar" Margin="-7,21,588,378" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Cornsilk"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+
+</Page>

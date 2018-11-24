@@ -1,0 +1,47 @@
+﻿<Page x:Class="BD___Project.GUI.Lista_Tecnologias"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BD___Project.GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Cinemas ZOZ" Height="450" Width="650" Background="#6495ED">
+
+    <Grid Margin="10">
+        <Label Content="" Height="26" Name="operacoes" VerticalAlignment="Top" Background="#B0C4DE" Margin="-10,-10,-11,0"/>
+        <TextBlock Margin="297,87,306,323" FontSize="13.333">ID</TextBlock>
+        <TextBlock Margin="297,122,294,291" FontSize="13.333">Nome</TextBlock>
+        <TextBox x:Name="id_textbox" Margin="428,87,10,316"/>
+        <TextBox x:Name="nome_textbox" Margin="428,122,10,281"/>
+        <Button Name="Adicionar" Click="Adicionar_Click" Margin="420,295,143,103">Adicionar</Button>
+        <Button Name="Remover" Click="Remover_Click" Margin="108,295,455,103">Remover</Button>
+        <Button Name="Alterar" Click="Alterar_Click" Margin="515,295,48,103">Alterar</Button>
+        <Button Content="Terminar Sessão" Margin="531,-10,0,413" Name="logout_button" Click="logout_button_Click" Background="#AFEEEE" />
+        <Button Content="Admin Menu" Margin="-10,-10,522,414" x:Name="admin_button" Click="admin_button_Click" Background="#AFEEEE" />
+        <Button Content="Lista Tecnologias" Margin="108,-10,404,414" x:Name="listatecnologias_button" Click="listatecnologias_button_Click" Background="#AFEEEE" />
+        <ListBox Name="tecnologiaslb" SelectionMode="Multiple" SelectionChanged="lbTodoList_SelectionChanged" Margin="47,87,367,181">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Title}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Voltar" Margin="-7,21,588,378" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Cornsilk"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+
+</Page>
