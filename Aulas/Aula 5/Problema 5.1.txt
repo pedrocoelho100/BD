@@ -1,0 +1,80 @@
+--	a)
+/*
+π Pnumber, Pname, Fname, Minit, Lname, Ssn (
+	project ⨝ Pnumber = Pno (
+		works_on ⨝ Essn = Ssn employee
+	)
+)
+*/
+
+--	b)
+/*
+π Ssn, Fname, Minit, Lname, Super_ssn (
+	employee ⨝ (
+		π Ssn → Super_ssn (
+			σ (Fname = 'Carlos' ∧ Minit = 'D' ∧ Lname = 'Gomes') (employee)
+		)
+	)
+)
+*/
+
+--	c)
+/*
+π Pname, Hours (
+	project ⨝ Pnumber = Pno (
+		γ Pno; sum(Hours) → Hours (works_on)
+	)
+)
+*/
+
+--	d)
+/*
+π Fname, Minit, Lname (
+	σ (Dno = 3) (employee) ⨝ Ssn = Essn (
+		σ (Hours > 20) (works_on) ⨝ Pnumber = Pno (
+				σ (Pname = 'Aveiro Digital') (project)
+		)
+	)
+)
+*/
+
+--	e)
+/*
+π Fname, Minit, Lname (
+	σ Pno = null (employee ⟕ Ssn = Essn works_on)
+)
+*/
+
+--	f)
+/*
+π Dname, F_Salary_Avg (
+	department ⨝ Dnumber = Dno (γ Dno; avg(Salary) → F_Salary_Avg (σ (Sex = 'F') (employee)))
+)
+*/
+
+--	g)
+/*
+π Fname, Minit, Lname (
+	employee ⨝ Ssn = Essn (
+		σ Ndependent > 2 (γ Essn; count(Essn) → Ndependent dependent)
+	)
+)
+*/
+
+--	h)
+/*
+π Fname, Minit, Lname (
+	σ Essn = null (employee ⨝ Ssn = Mgr_ssn department ⟕ Ssn = Essn dependent)
+)
+*/
+
+--	i)
+/*
+π Fname, Minit, Lname, Address (
+	employee ⟕ Dno = Dnumber (
+		σ Dlocation = null (department ⟕ (
+			σ Dlocation = 'Aveiro' (dept_location)
+		))
+	) ⨝ Ssn = Essn (works_on ⨝ Pno = Pnumber (σ Plocation = 'Aveiro' (project)))
+)
+*/

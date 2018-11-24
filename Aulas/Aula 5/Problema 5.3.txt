@@ -1,0 +1,41 @@
+--	a)
+/*
+π numUtente, nome (
+	σ numPresc = null (paciente ⟕ prescricao)
+)
+*/
+
+--	b)
+/*
+γ especialidade; count(numPresc) → numPrecs (medico ⟕ numSNS = numMedico prescricao)
+*/
+
+--	c)
+/*
+γ nome; count(numPresc) → numPrecs (farmacia ⟕ nome = farmacia prescricao)
+*/
+
+--	d)
+/*
+π numRegFarm, nome (
+	σ numPresc = null (
+		ρ numRegFarm → regFarm presc_farmaco ⟖ (regFarm = numRegFarm ∧ nome = nomeFarmaco) (
+			σ numRegFarm = 906 (farmaco)
+		)
+	)
+)
+*/
+
+--	e)
+/*
+γ farmacia.nome, farmaco.numRegFarm; sum(unidadesVendidas) → numFarmacosVendidos (
+	γ farmacia.nome, farmaco.numRegFarm, farmaco.nome; count(numPresc) → unidadesVendidas (
+		(farmacia ⨯ farmaco) ⟕ farmacia.nome = farmacia ∧ farmaco.nome = nomeFarmaco ∧ farmaco.numRegFarm = presc_farmaco.numRegFarm (prescricao ⨝ presc_farmaco)
+	)
+)
+*/
+
+--	f)
+/*
+π numUtente (σ numMedicos > 1 (γ numUtente; count(numMedico) → numMedicos (π numUtente, numMedico (prescricao))))
+*/

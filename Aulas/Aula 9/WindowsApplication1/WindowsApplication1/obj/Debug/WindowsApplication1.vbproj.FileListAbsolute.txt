@@ -1,0 +1,5 @@
+C:\Users\Pedro Coelho\Desktop\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\Pedro Coelho\Desktop\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+C:\Users\Pedro Coelho\Desktop\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.CinemasZOZ.resources
+C:\Users\Pedro Coelho\Desktop\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Pedro Coelho\Desktop\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache

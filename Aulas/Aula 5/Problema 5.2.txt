@@ -1,0 +1,27 @@
+--	a)
+/*
+π nif, nome (
+	σ numero = null (fornecedor ⟕ nif = fornecedor encomenda)
+)
+*/
+
+--	b)
+/*
+π codigo, nome, avgUnid (
+	produto ⨝ codigo = codProd (
+		γ codProd; avg(unidades) → avgUnid (item)
+	)
+)
+*/
+
+--	c)
+/*
+γ avg(numProds) → avgNumProds (
+	γ numEnc; count(codProd) → numProds (item)
+)
+*/
+
+--	d)
+/*
+γ fornecedor, codProd; sum(unidades) → unidades (encomenda ⨝ numero = numEnc item)
+*/
